@@ -186,7 +186,7 @@ class Turtlebot():
         # ~ if self.state == "left":
             # ~ print("------------------------------------ TURNING LEFT ------------------------------------")
             
-            # use PD controller to control the angle: from Lab 5
+            # use PD controller to control the angle: 
             # ~ self.pd_control.setPoint(self.angle_error_thres)
             # ~ while abs((self.pose.theta % (pi/2))) < self.angle_error_thres:
                 # ~ vel.angular.z = self.ang_vel_scale * self.pd_control.update((self.pose.theta % (pi/2)))
@@ -195,14 +195,14 @@ class Turtlebot():
                 # ~ self.rate.sleep()
             # ~ print("done with turning")
             
-            # ~ # move forward a bit: from lab 4
+            # ~ # move forward a bit
             # ~ for i in range(11):
                 # ~ vel.linear.x = 0.2
                 # ~ vel.angular.z = 0
                 # ~ self.vel_pub.publish(vel)
                 # ~ self.rate.sleep()
 
-            # ~ # use PD controller to control the angle: from Lab 5
+            # ~ # use PD controller to control the angle
             # ~ self.pd_control.setPoint(self.control_list[0])
             # ~ while abs(self.pose.theta - self.pd_control.set_point) >self.angular_threshold:
                 # ~ vel.angular.z = self.pd_control.update(self.pose.theta)
@@ -211,7 +211,7 @@ class Turtlebot():
                 # ~ self.rate.sleep()
             # ~ print("done with turning")
 
-            # ~ # move forward a bit: from lab 4
+            # ~ # move forward a bit: 
             # ~ for i in range(92):
                 # ~ vel.linear.x = 0.2
                 # ~ vel.angular.z = 0
@@ -251,7 +251,7 @@ class Turtlebot():
         else:
             self.forward_min_dist = data.ranges[0]
 
-        # transform the lidar points frame /rplidar_link from to another frame:  from lab 3 and lab 2
+        # transform the lidar points frame /rplidar_link from to another frame:
         listener = tf.TransformListener()
         (trans,rot) = listener.lookupTransform('/rplidar_link', '/cliff_sensor_left_link', rospy.Time(0))
 
@@ -362,7 +362,6 @@ class Turtlebot():
         # Write code heck if the robot has reached the goal within the tolerance
         # if robot has reached goal, save the trajectory by self.save_trajectory(), and then shutdown ROS using rospy.signal_shutdown()
         
-        # LAB 8 ADJUSTMENT
         if self.dist_goal() < self.goal_tolerance:
             self.save_trajectory()
             print("WE ARE DONE!")
