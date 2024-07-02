@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# See the below types of comments for adjustments I made to work with Lab 8 environment
-# LAB 8 ADJUSTMENT
-
 import roslib
 roslib.load_manifest('ee106s24')
 import rospy
@@ -384,7 +381,6 @@ def main(args):
     rospy.init_node('left_wall_follower', anonymous=True)
     # Get parameters from the launch file
     
-    # LAB 8 ADJUSTMENT
     goal_x = rospy.get_param('goal_x')
     goal_y = rospy.get_param('goal_y')
     csv_file = rospy.get_param('csv_file')
