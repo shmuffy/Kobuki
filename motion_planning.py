@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# EE 106 Lab 6
-
 # ~ import numpy as np
 # ~ import matplotlib.pyplot as plt
 
