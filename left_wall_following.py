@@ -192,14 +192,14 @@ class Turtlebot():
                 # ~ rospy.signal_shutdown('Received shutdown message')
 
             
-            # move forward a bit: from lab 4
+            # move forward a bit: 
             for i in range(11):                                                                   # 40 IS SUBJECT TO CHANGE
                 vel.linear.x = 0.2
                 vel.angular.z = 0                                                                 # SUBJECT TO CHANGE
                 self.vel_pub.publish(vel)
                 self.rate.sleep()
 
-            # use PD controller to control the angle: from Lab 5
+            # use PD controller to control the angle: 
             print("TESTING TESTING 123")
             self.pd_control.setPoint(self.control_list[0])
             print("123 TESTING TESTING")
@@ -214,7 +214,7 @@ class Turtlebot():
             if len(self.control_list) == 0:
                 self.end_flag = True
 
-            # move forward a bit: from lab 4
+            # move forward a bit: 
             if not self.end_flag and len(self.control_list) != 0:
                 print("yeet yeet yeet")
                 for i in range(92):                                                                   # SUBJECT TO CHANGE
@@ -228,7 +228,7 @@ class Turtlebot():
             self.right_counter = self.right_counter + 1
             if len(self.control_list) == 0:
                 self.control_list.append(pi/2)
-            # use PD controller to control the angle: from Lab 5
+            # use PD controller to control the angle: 
             self.pd_control.setPoint(self.pose.theta - pi/2)
             while abs(self.pose.theta - self.pd_control.set_point) > self.angular_threshold:
                 vel.angular.z = self.pd_control.update(self.pose.theta)
@@ -266,7 +266,7 @@ class Turtlebot():
         else:
             self.forward_min_dist = data.ranges[0]
 
-        # transform the lidar points frame /rplidar_link from to another frame:  from lab 3 and lab 2
+        # transform the lidar points frame /rplidar_link from to another frame:  
         listener = tf.TransformListener()
         (trans,rot) = listener.lookupTransform('/rplidar_link', '/cliff_sensor_left_link', rospy.Time(0))
 
